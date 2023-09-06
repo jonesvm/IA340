@@ -1,7 +1,7 @@
 -- Create schemas
 
 -- Create tables
-CREATE TABLE IF NOT EXISTS ""professor ""
+CREATE TABLE IF NOT EXISTS professor
 (
     p_email VARCHAR(50) NOT NULL,
     p_name VARCHAR(50) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS course
 -- Create FKs
 ALTER TABLE course
     ADD    FOREIGN KEY (p_email)
-    REFERENCES "professor "(p_email)
+    REFERENCES professor(p_email)
     MATCH SIMPLE
 ;
     
@@ -55,7 +55,5 @@ ALTER TABLE enroll
     
 
 -- Create Indexes
-CREATE INDEX Index ON ""professor "";
-CREATE INDEX Index ON student;
-CREATE INDEX Index ON course;
+
 
