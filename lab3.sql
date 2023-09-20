@@ -20,7 +20,6 @@ values ('c1','postgresql','r1','p1@jmu.edu'),
 
 --Q2.4
 
-
 insert into enroll(s_email,c_number)
 values ('s1@jmu.edu','c1'),
 ('s2@jmu.edu','c1'),
@@ -52,7 +51,14 @@ where p_email = 'p1@jmu.edu'
 select * from enroll
 
 --Q2.8
-
+/*course 1 has the most students in it with 3 students in the class*/ 
+select * from enroll
+	
+select c_number,count(*) as num_student
+from enroll 
+group by c_number
+order by num_student desc
+limit 1
 	
 --Q2.9
 
@@ -62,31 +68,12 @@ from professor
 inner join course 
 on professor.p_email = course.p_email
 
-
 --Q2.10
 */ p2 teaches 1 course, p3 teaches 3 courses*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select professor.p_name, count(course.c_number) as num_courses_taught
+from professor 
+inner join course
+on professor.p_email = course.p_email
+group by professor.p_name
+order by num_courses_taught desc 
+limit 1
